@@ -1,54 +1,45 @@
-/* Osnovni stilovi */
-html { scroll-behavior: smooth; }
+/* Animacije */
+.fade-in { animation: fadeIn 0.4s ease-out forwards; }
+@keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
 
-::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-track { background: #0a192f; }
-::-webkit-scrollbar-thumb { background: #d4af37; }
-
-/* Animacije za kategorije i proizvode */
-.fade-in-up {
-    animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+/* Stil kartice kao na OLX / Piku */
+.olx-card {
+    background: white;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
 }
 
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
+.olx-card:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    border-color: #cbd5e1;
 }
 
-/* Hover efekti na karticama proizvoda */
-.product-card {
-    transition: all 0.5s ease;
+/* Zaobljena dugmad menija */
+.menu-btn {
+    width: 100%;
+    padding: 20px;
+    background: #f8fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 50px;
+    font-weight: 700;
+    color: #1e3a8a;
+    transition: all 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.product-card:hover {
-    transform: translateY(-5px);
-}
-
-.product-card img {
-    transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-
-.product-card:hover img {
-    transform: scale(1.08);
-}
-
-/* Glow efekat za akcentne elemente */
-.glow-gold {
-    box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
-}
-
-.glow-gold:hover {
-    box-shadow: 0 0 25px rgba(212, 175, 55, 0.3);
+.menu-btn:hover {
+    background: #eff6ff;
+    border-color: #3b82f6;
+    transform: translateY(-2px);
 }
 
 /* Modal Gallery */
-.gallery-thumb {
-    cursor: pointer;
-    filter: grayscale(100%);
-    transition: 0.3s;
-}
-
-.gallery-thumb:hover {
-    filter: grayscale(0%);
-    border-color: #d4af37;
+.gallery-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #cbd5e1;
+    margin: 0 4px;
 }
