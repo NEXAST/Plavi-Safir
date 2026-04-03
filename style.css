@@ -1,7 +1,6 @@
-/* Tekstovi i fontovi */
 html { scroll-behavior: smooth; }
 
-/* OLX / Pik Kartice */
+/* OLX Kartice */
 .olx-card {
     background: white;
     border-radius: 12px;
@@ -16,14 +15,6 @@ html { scroll-behavior: smooth; }
     border-color: #3b82f6;
 }
 
-.olx-card h3 {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
-
-/* Zaobljena dugmad menija */
 .menu-btn {
     width: 100%;
     padding: 22px;
@@ -32,8 +23,7 @@ html { scroll-behavior: smooth; }
     border-radius: 100px;
     font-weight: 700;
     color: #1e3a8a;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
-    transition: all 0.3s;
+    transition: 0.3s;
     text-transform: uppercase;
     font-size: 13px;
     letter-spacing: 2px;
@@ -45,11 +35,6 @@ html { scroll-behavior: smooth; }
     transform: scale(1.03);
 }
 
-.menu-btn:active {
-    transform: scale(0.97);
-}
-
-/* Animacije */
 .fade-in {
     animation: fadeIn 0.5s ease-out forwards;
 }
@@ -59,12 +44,5 @@ html { scroll-behavior: smooth; }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Modal zaobljenja */
-#detail-modal > div {
-    border-radius: 40px;
-}
-
-/* Scrollbar */
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #f8fafc; }
 ::-webkit-scrollbar-thumb { background: #3b82f6; border-radius: 10px; }
