@@ -1,14 +1,3 @@
-const productNames = {
-    "Satovi": ["Royal Oak", "Submariner", "Daytona", "Classic Fusion", "Nautilus", "Speedmaster", "Seamaster", "Black Bay", "Navitimer", "Carrera"],
-    "Parfemi": ["Midnight Oud", "Blue Sapphire", "Golden Dust", "Silver Rain", "Imperial", "Velvet Rose", "Ocean Breeze", "Mystic Night", "Pure Silk", "Noble Leather"],
-    "Torbice": ["Milano", "Parisian", "Venice Lux", "Roma", "Madrid", "London Soul", "Berlin Chic", "Monaco", "Vienna", "Florence"],
-    "Ogrlice": ["Venezia", "Infinity", "Luna", "Stella", "Aurora", "Diamond Heart", "Crystal Drop", "Royal Chain", "Elegance", "Serenity"],
-    "Prstenovi": ["Solitaire", "Sparkle", "Crown", "Destiny", "Promise", "Eternal", "Halo", "Vintage Glow", "Modern Love", "Tiara"],
-    "Narukvice": ["Bangle Lux", "Tennis Star", "Golden Mesh", "Silver Link", "Butterfly", "Charm", "Nodes", "Spiral", "Grace", "Unity"]
-};
-
-const gShockModels = ["GA-2100-1AER", "DW-5600BB-1ER", "GA-100-1A1ER", "GG-B100-1AER", "GW-M5610U-1ER", "GA-2100SKE", "DW-6900", "GM-2100", "GST-B400", "GX-56BB"];
-
 const menuData = {
     "Glavni": ["Satovi", "Parfemi", "Torbice", "Ogrlice", "Prstenovi", "Narukvice"],
     "Torbice": ["Muške", "Ženske"],
@@ -29,11 +18,11 @@ function openFullMenu(key) {
     menu.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
     
-    content.innerHTML = `<h2 class="text-blue-400 text-[10px] font-bold mb-10 tracking-[0.4em] uppercase opacity-60 italic text-center">— Izaberite kolekciju —</h2>`;
+    content.innerHTML = `<h2 class="text-slate-300 text-[10px] font-bold mb-8 uppercase tracking-widest text-center italic">— ${key} —</h2>`;
 
     menuData[key].forEach(option => {
         const btn = document.createElement('button');
-        btn.className = "menu-btn mb-4 fade-in block w-full";
+        btn.className = "menu-btn fade-in";
         btn.innerText = option;
         btn.onclick = () => {
             menuHistory.push(key);
@@ -43,14 +32,11 @@ function openFullMenu(key) {
     });
 
     if(key !== 'Glavni') {
-        const backBtn = document.createElement('button');
-        backBtn.className = "mt-10 py-3 px-10 border-2 border-slate-100 text-slate-400 font-bold uppercase text-[10px] tracking-widest rounded-full hover:border-blue-600 hover:text-blue-600 transition-all";
-        backBtn.innerHTML = "← Vrati se nazad";
-        backBtn.onclick = () => {
-            const lastMenu = menuHistory.pop();
-            openFullMenu(lastMenu || 'Glavni');
-        };
-        content.appendChild(backBtn);
+        const back = document.createElement('button');
+        back.className = "w-full text-slate-400 text-[10px] font-bold uppercase mt-4 hover:text-blue-600";
+        back.innerText = "← Nazad";
+        back.onclick = () => openFullMenu(menuHistory.pop() || 'Glavni');
+        content.appendChild(back);
     }
 }
 
@@ -60,8 +46,7 @@ function handleMenuClick(parent, option) {
         else if (parent === "Parfemi" || parent === "Torbice") showProducts(option, parent);
         else openFullMenu('Sub-Metal');
     } else if (["Zlato", "Srebro", "Gumeni"].includes(option)) {
-        let realCat = menuHistory[menuHistory.length - 1] || parent;
-        showProducts(option, realCat);
+        showProducts(option, menuHistory[1] || parent);
     } else {
         openFullMenu(option);
     }
@@ -73,36 +58,35 @@ function closeFullMenu() {
     menuHistory = [];
 }
 
-function showProducts(subCategory, mainCategory) {
+function showProducts(sub, main) {
     closeFullMenu();
     const section = document.getElementById('shop-section');
     const grid = document.getElementById('product-grid');
-    const bread = document.getElementById('breadcrumb');
-    
     section.classList.remove('hidden');
-    bread.innerText = `KOLEKCIJA / ${mainCategory} / ${subCategory}`;
+    document.getElementById('breadcrumb').innerText = `${main} / ${sub}`;
     grid.innerHTML = '';
 
-    const namesList = productNames[mainCategory] || ["Elegance", "Lux"];
-
-    for (let i = 0; i < 10; i++) {
-        const price = (Math.floor(Math.random() * 800) + 120).toFixed(2);
-        const oldPrice = (parseFloat(price) + 80).toFixed(2);
-        let finalName = subCategory === "Gumeni" ? `G-Shock ${gShockModels[i]}` : `${mainCategory} "${namesList[i % namesList.length]}"`;
-
+    for (let i = 1; i <= 10; i++) {
+        const price = (Math.floor(Math.random() * 500) + 150).toFixed(2);
         grid.innerHTML += `
-            <div class="olx-card fade-in cursor-pointer" onclick="openDetails('${finalName}', '${price}', '${mainCategory}')">
-                <div class="aspect-square bg-white overflow-hidden border-b border-slate-50">
-                    <img src="https://source.unsplash.com/featured/500x500?${mainCategory.toLowerCase()},jewelry&sig=${i + Math.random()}" class="w-full h-full object-cover">
+            <div class="olx-card fade-in cursor-pointer" onclick="openDetails('${main} Model Lux ${i}', '${price}')">
+                <div class="p-2 flex gap-1">
+                   <span class="bg-[#788e93] text-white text-[8px] px-1 rounded uppercase font-bold">OLX Shop</span>
+                   <span class="bg-[#788e93] text-white text-[8px] px-1 rounded"><i class="fas fa-truck"></i></span>
+                </div>
+                <div class="aspect-square bg-white flex items-center justify-center p-4">
+                    <img src="https://source.unsplash.com/featured/400x400?jewelry,${main}&sig=${i}" class="max-h-full object-contain">
                 </div>
                 <div class="p-4">
-                    <div class="flex gap-2 mb-2">
-                        <span class="text-[9px] border border-blue-100 text-blue-500 px-2 py-0.5 rounded font-bold uppercase text-center">Novo</span>
-                    </div>
-                    <h3 class="text-[13px] font-bold text-slate-700 leading-tight h-10 mb-3 uppercase tracking-tight">${finalName}</h3>
-                    <div class="flex flex-col">
-                        <span class="text-[10px] text-slate-300 line-through">${oldPrice} KM</span>
-                        <span class="text-xl font-bold text-blue-600">${price} KM</span>
+                    <span class="olx-badge-gray">Dostupno odmah</span>
+                    <h3 class="text-sm font-medium text-slate-700 mt-3 h-10 overflow-hidden leading-tight">${main} - Unikatna serija model ${i}</h3>
+                    <div class="mt-2"><span class="olx-novo">Novo</span></div>
+                    <div class="flex justify-between items-end mt-6">
+                        <span class="text-slate-400 text-xs italic">prije 2 minute</span>
+                        <div class="text-right">
+                            <div class="olx-price-old">${(parseFloat(price)+45).toFixed(2)} KM</div>
+                            <div class="olx-price-new">${price} KM</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -111,32 +95,15 @@ function showProducts(subCategory, mainCategory) {
     setTimeout(() => section.scrollIntoView({ behavior: 'smooth' }), 300);
 }
 
-function openDetails(name, price, cat) {
+function openDetails(name, price) {
     const modal = document.getElementById('detail-modal');
     modal.classList.remove('hidden');
-    document.body.style.overflow = 'hidden';
-
     modal.innerHTML = `
-        <div class="bg-white w-full max-w-4xl max-h-[90vh] overflow-y-auto p-8 md:p-12 relative flex flex-col md:flex-row gap-10 text-center md:text-left">
-            <button onclick="closeDetails()" class="absolute top-6 right-8 text-4xl text-slate-200 hover:text-blue-600">×</button>
-            <div class="md:w-1/2">
-                <img src="https://source.unsplash.com/featured/800x800?${cat.toLowerCase()},jewelry&sig=${Math.random()}" class="w-full aspect-square object-cover rounded-[30px] border border-slate-100 shadow-sm">
-            </div>
-            <div class="md:w-1/2 flex flex-col justify-center text-center md:text-left">
-                <h2 class="text-4xl font-['Playfair_Display'] text-blue-950 mb-3">${name}</h2>
-                <p class="text-3xl font-bold text-blue-600 mb-8">${price} KM</p>
-                <div class="bg-slate-50 p-6 rounded-3xl border border-slate-100 mb-8 text-sm text-slate-500 italic leading-relaxed text-center">
-                    "Prefinjenost i kvalitet. Zlatara Plavi Safir nudi samo najfinije materijale, garantovanog kvaliteta. Posjetite nas u Gradišci."
-                </div>
-                <a href="https://wa.me/38765959096" target="_blank" class="w-full py-5 bg-blue-600 text-white rounded-full font-bold text-center shadow-xl hover:bg-blue-700 transition">
-                    NARUČI PREKO WHATSAPP-A
-                </a>
-            </div>
+        <div class="bg-white max-w-2xl w-full p-8 rounded-2xl relative">
+            <button onclick="document.getElementById('detail-modal').classList.add('hidden')" class="absolute top-4 right-4 text-2xl text-slate-300">×</button>
+            <h2 class="text-3xl font-['Playfair_Display'] mb-4">${name}</h2>
+            <p class="text-2xl font-bold text-blue-600 mb-6">${price} KM</p>
+            <a href="https://wa.me/38765959096" class="block w-full py-4 bg-green-500 text-white text-center rounded-lg font-bold">PITAJ NA WHATSAPP</a>
         </div>
     `;
-}
-
-function closeDetails() {
-    document.getElementById('detail-modal').classList.add('hidden');
-    document.body.style.overflow = 'auto';
 }
