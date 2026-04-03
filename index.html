@@ -3,73 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plavi Safir | Luksuzna Zlatara Gradiška</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <title>Zlatara Plavi Safir | Gradiška</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-[#0a192f] text-[#f5f5f5] font-['Montserrat'] overflow-x-hidden">
+<body class="bg-slate-50 text-slate-800 font-['Montserrat']">
 
-    <nav class="fixed top-0 w-full z-50 bg-[#0a192f]/90 backdrop-blur-md border-b border-[#d4af37]/20 px-6 py-4 flex justify-between items-center">
-        <div class="text-2xl font-['Playfair_Display'] font-bold tracking-widest text-[#d4af37]">
+    <nav class="fixed top-0 w-full z-[80] bg-white/90 backdrop-blur-md border-b border-blue-100 px-6 py-4 flex justify-between items-center shadow-sm">
+        <div class="text-xl font-['Playfair_Display'] font-bold tracking-tight text-blue-900">
             PLAVI SAFIR
         </div>
-        <div class="hidden md:flex space-x-8 text-sm uppercase tracking-widest">
-            <a href="#ponuda" class="hover:text-[#d4af37] transition">Ponuda</a>
-            <a href="#o-nama" class="hover:text-[#d4af37] transition">O nama</a>
-            <a href="#kontakt" class="hover:text-[#d4af37] transition">Kontakt</a>
-            <a href="#lokacija" class="hover:text-[#d4af37] transition">Lokacija</a>
+        <div class="hidden md:flex space-x-6 text-xs uppercase font-bold tracking-wider">
+            <a href="#" onclick="openFullMenu('Glavni')" class="text-blue-600 hover:text-blue-400">Kolekcija</a>
+            <a href="#o-nama" class="hover:text-blue-600">O nama</a>
+            <a href="#lokacija" class="hover:text-blue-600">Lokacija</a>
+            <a href="#kontakt" class="hover:text-blue-600">Kontakt</a>
         </div>
-        <div class="md:hidden text-[#d4af37] text-2xl">
-            <i class="fas fa-bars"></i>
-        </div>
+        <button onclick="openFullMenu('Glavni')" class="md:hidden text-blue-900 text-2xl">
+            <i class="fas fa-th-large"></i>
+        </button>
     </nav>
 
-    <header class="h-screen flex flex-col justify-center items-center text-center px-4 relative overflow-hidden">
-        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1515562141207-7a18b5ce7142?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-20"></div>
-        <h1 class="font-['Playfair_Display'] text-5xl md:text-7xl mb-4 relative z-10">Bezvremenska Elegancija</h1>
-        <p class="text-lg md:text-xl italic font-light max-w-2xl text-[#d4af37]/80 relative z-10">Zlatara Plavi Safir - Vaša tradicija luksuza u Gradišci.</p>
-        <a href="#ponuda" class="mt-8 px-8 py-3 border border-[#d4af37] text-[#d4af37] hover:bg-[#d4af37] hover:text-[#0a192f] transition-all duration-500 uppercase tracking-widest text-sm relative z-10">Istražite kolekciju</a>
+    <header class="h-screen flex flex-col justify-center items-center text-center px-4 bg-gradient-to-b from-blue-50 to-white">
+        <h1 class="font-['Playfair_Display'] text-5xl md:text-7xl mb-6 text-blue-950 uppercase tracking-tighter">ZLATARA PLAVI SAFIR</h1>
+        <p class="text-gray-500 max-w-md mb-10 leading-relaxed">Ekskluzivna kolekcija nakita, satova i aksesoara u srcu Gradiške.</p>
+        <button onclick="openFullMenu('Glavni')" class="px-10 py-4 bg-blue-600 text-white rounded-full font-bold shadow-xl shadow-blue-200 hover:bg-blue-700 transition-all transform hover:scale-105">
+            ISTRAŽITE KOLEKCIJU
+        </button>
     </header>
 
-    <section id="ponuda" class="py-24 px-6 max-w-7xl mx-auto">
-        <h2 class="text-4xl font-['Playfair_Display'] text-center mb-12">Ekskluzivna Ponuda</h2>
-        <div id="category-bread-crumbs" class="mb-8 text-sm text-[#d4af37]/60 flex gap-2 justify-center italic h-6">Početna</div>
-        <div id="category-selector" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-16">
+    <div id="full-menu" class="fixed inset-0 z-[100] bg-white/98 hidden flex flex-col items-center justify-center p-6 overflow-y-auto">
+        <button onclick="closeFullMenu()" class="absolute top-8 right-8 text-4xl text-blue-900">&times;</button>
+        <div id="menu-content" class="w-full max-w-2xl text-center space-y-4">
             </div>
-        <div id="product-grid" class="grid grid-cols-2 gap-8 lg:gap-12">
+    </div>
+
+    <section id="shop-section" class="py-24 px-4 max-w-7xl mx-auto hidden">
+        <div id="breadcrumb" class="mb-8 text-blue-400 text-sm font-bold uppercase tracking-widest text-center"></div>
+        <div id="product-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
             </div>
     </section>
 
-    <section id="o-nama" class="py-24 bg-[#071121]">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <h2 class="text-4xl font-['Playfair_Display'] mb-8 text-[#d4af37]">Tradicija duga decenijama</h2>
-            <p class="leading-relaxed text-lg text-gray-300 mb-6">Smešteni u srcu Gradiške, u Vidovdanskoj ulici, Zlatara "Plavi Safir" decenijama gradi poverenje kroz unikatnu izradu i najviši kvalitet plemenitih metala.</p>
+    <section id="o-nama" class="py-20 bg-white border-t border-blue-50">
+        <div class="max-w-3xl mx-auto text-center px-6">
+            <h2 class="text-3xl font-['Playfair_Display'] mb-6">O nama</h2>
+            <p class="text-gray-600">Tradicija i poverenje u Gradišci. Nalazimo se u Vidovdanskoj ulici, pored kafe Insomnia.</p>
         </div>
     </section>
 
-    <section id="lokacija" class="py-24 px-6 max-w-5xl mx-auto">
-        <h2 class="text-3xl font-['Playfair_Display'] text-center mb-8">Pronađite nas u Gradišci</h2>
-        <a href="https://www.google.com/maps?q=45.14636,17.25160" target="_blank" class="block w-full h-96 relative group rounded-lg overflow-hidden border border-[#d4af37]/30 shadow-2xl">
-            <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&q=80" class="w-full h-full object-cover grayscale opacity-40 group-hover:opacity-60 transition duration-700">
-            <div class="absolute inset-0 flex flex-col justify-center items-center">
-                <i class="fas fa-map-marker-alt text-6xl text-[#d4af37] drop-shadow-lg mb-4"></i>
-                <p class="bg-[#0a192f]/90 px-4 py-2 border border-[#d4af37] text-sm tracking-widest">VIDOVDANSKA (PORED KAFE INSOMNIA)</p>
+    <section id="lokacija" class="p-4 max-w-5xl mx-auto">
+        <a href="https://maps.google.com/?q=45.14636,17.25160" target="_blank" class="block h-64 rounded-3xl overflow-hidden relative border-4 border-white shadow-2xl">
+            <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-blue-900/20 flex items-center justify-center">
+                <span class="bg-white text-blue-900 px-6 py-2 rounded-full font-bold">KLIKNI ZA MAPU</span>
             </div>
         </a>
     </section>
 
-    <footer id="kontakt" class="py-16 border-t border-[#d4af37]/20 text-center">
-        <div class="flex justify-center space-x-12 mb-10">
-            <a href="https://instagram.com/nexa_studio2" target="_blank" class="text-3xl hover:text-[#d4af37] transition transform hover:scale-125"><i class="fab fa-instagram"></i></a>
-            <a href="https://wa.me/38765959096" target="_blank" class="text-3xl hover:text-[#d4af37] transition transform hover:scale-125"><i class="fab fa-whatsapp"></i></a>
-            <a href="tel:+38765959096" class="text-3xl hover:text-[#d4af37] transition transform hover:scale-125"><i class="fas fa-phone"></i></a>
+    <div id="detail-modal" class="fixed inset-0 z-[110] bg-black/90 hidden flex items-center justify-center p-4">
         </div>
-        <p class="text-[10px] text-gray-500 uppercase tracking-[0.3em]">© 2026 Plavi Safir Gradiška | Built by Nexa Studio</p>
-    </footer>
-
-    <div id="product-modal" class="fixed inset-0 z-[100] bg-[#0a192f]/98 hidden flex items-center justify-center p-4"></div>
 
     <script src="script.js"></script>
 </body>
