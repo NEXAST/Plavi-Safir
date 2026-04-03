@@ -29,7 +29,7 @@ function openFullMenu(key) {
     menu.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
     
-    content.innerHTML = `<h2 class="text-blue-400 text-[10px] font-bold mb-10 tracking-[0.4em] uppercase opacity-60 italic">— ${key} —</h2>`;
+    content.innerHTML = `<h2 class="text-blue-400 text-[10px] font-bold mb-10 tracking-[0.4em] uppercase opacity-60 italic text-center">— ${key} —</h2>`;
 
     menuData[key].forEach(option => {
         const btn = document.createElement('button');
@@ -83,7 +83,7 @@ function showProducts(subCategory, mainCategory) {
     bread.innerText = `KOLEKCIJA / ${mainCategory} / ${subCategory}`;
     grid.innerHTML = '';
 
-    const namesList = productNames[mainCategory] || ["Elegance", "Lux", "Prestige"];
+    const namesList = productNames[mainCategory] || ["Elegance", "Lux"];
 
     for (let i = 0; i < 10; i++) {
         const price = (Math.floor(Math.random() * 800) + 120).toFixed(2);
@@ -97,8 +97,7 @@ function showProducts(subCategory, mainCategory) {
                 </div>
                 <div class="p-4">
                     <div class="flex gap-2 mb-2">
-                        <span class="text-[9px] border border-blue-100 text-blue-500 px-2 py-0.5 rounded font-bold uppercase">Novo</span>
-                        <span class="text-[9px] bg-red-50 text-red-500 px-2 py-0.5 rounded font-bold uppercase italic">Akcija</span>
+                        <span class="text-[9px] border border-blue-100 text-blue-500 px-2 py-0.5 rounded font-bold uppercase text-center">Novo</span>
                     </div>
                     <h3 class="text-[13px] font-bold text-slate-700 leading-tight h-10 mb-3 uppercase tracking-tight">${finalName}</h3>
                     <div class="flex flex-col">
@@ -118,24 +117,19 @@ function openDetails(name, price, cat) {
     document.body.style.overflow = 'hidden';
 
     modal.innerHTML = `
-        <div class="bg-white w-full max-w-4xl max-h-[90vh] overflow-y-auto p-8 md:p-12 relative flex flex-col md:flex-row gap-10">
+        <div class="bg-white w-full max-w-4xl max-h-[90vh] overflow-y-auto p-8 md:p-12 relative flex flex-col md:flex-row gap-10 text-center md:text-left">
             <button onclick="closeDetails()" class="absolute top-6 right-8 text-4xl text-slate-200 hover:text-blue-600">×</button>
             <div class="md:w-1/2">
-                <img src="https://source.unsplash.com/featured/800x800?${cat.toLowerCase()},jewelry&sig=${Math.random()}" class="w-full aspect-square object-cover rounded-[30px] border border-slate-100">
-                <div class="flex justify-center mt-6 gap-2">
-                    <div class="w-2 h-2 rounded-full bg-blue-600"></div>
-                    <div class="w-2 h-2 rounded-full bg-slate-200"></div>
-                    <div class="w-2 h-2 rounded-full bg-slate-200"></div>
-                </div>
+                <img src="https://source.unsplash.com/featured/800x800?${cat.toLowerCase()},jewelry&sig=${Math.random()}" class="w-full aspect-square object-cover rounded-[30px] border border-slate-100 shadow-sm">
             </div>
             <div class="md:w-1/2 flex flex-col justify-center">
                 <h2 class="text-4xl font-['Playfair_Display'] text-blue-950 mb-3">${name}</h2>
                 <p class="text-3xl font-bold text-blue-600 mb-8">${price} KM</p>
-                <div class="bg-slate-50 p-6 rounded-3xl border border-slate-100 mb-8 text-sm text-slate-500 italic leading-relaxed italic">
-                    "Vrhunski komad iz kolekcije Plavi Safir. Ručna izrada, garancija na kvalitet i autentičnost. Dostupno odmah u radnji."
+                <div class="bg-slate-50 p-6 rounded-3xl border border-slate-100 mb-8 text-sm text-slate-500 italic">
+                    Ručna izrada, garancija na kvalitet i autentičnost. Dostupno odmah u radnji u Gradišci.
                 </div>
-                <a href="https://wa.me/38765959096" target="_blank" class="w-full py-5 bg-blue-600 text-white rounded-full font-bold text-center shadow-xl shadow-blue-100 hover:bg-blue-700 transition transform hover:scale-105 active:scale-95">
-                    <i class="fab fa-whatsapp mr-2"></i> NARUČI PREKO WHATSAPP-A
+                <a href="https://wa.me/38765959096" target="_blank" class="w-full py-5 bg-blue-600 text-white rounded-full font-bold text-center shadow-xl hover:bg-blue-700 transition">
+                    NARUČI PREKO WHATSAPP-A
                 </a>
             </div>
         </div>
