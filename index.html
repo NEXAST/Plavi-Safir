@@ -26,14 +26,26 @@
         </button>
     </nav>
 
-    <header class="h-screen flex flex-col justify-center items-center text-center px-4 bg-gradient-to-b from-blue-50 to-white relative overflow-hidden">
+    <header class="h-96 flex flex-col justify-center items-center text-center px-4 bg-gradient-to-b from-blue-50 to-white relative overflow-hidden text-center">
         <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
-        <h1 class="font-['Playfair_Display'] text-5xl md:text-8xl mb-6 text-blue-950 uppercase tracking-tighter leading-none relative z-10 text-center">PLAVI SAFIR</h1>
-        <p class="text-gray-400 max-w-md mb-10 leading-relaxed uppercase tracking-[0.2em] text-sm font-bold relative z-10 text-center">Gradiška, Vidovdanska</p>
-        <button onclick="openFullMenu('Glavni')" class="px-12 py-5 bg-blue-600 text-white rounded-full font-bold shadow-2xl shadow-blue-200 hover:bg-blue-700 transition-all transform hover:scale-105 active:scale-95 relative z-10 uppercase tracking-widest text-sm">
+        <h1 class="font-['Playfair_Display'] text-5xl md:text-8xl mb-4 text-blue-950 uppercase tracking-tighter leading-none relative z-10 text-center">PLAVI SAFIR</h1>
+        <p class="text-gray-400 max-w-md mb-8 leading-relaxed uppercase tracking-[0.2em] text-sm font-bold relative z-10 text-center">Gradiška, Vidovdanska</p>
+        <button onclick="openFullMenu('Glavni')" class="px-12 py-5 bg-blue-600 text-white rounded-full font-bold shadow-2xl hover:bg-blue-700 transition transform hover:scale-105 active:scale-95 relative z-10 uppercase tracking-widest text-sm text-center">
             ISTRAŽITE KOLEKCIJU
         </button>
     </header>
+
+    <section id="o-nama" class="py-24 bg-white text-center">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-4xl font-['Playfair_Display'] mb-12 text-blue-950 uppercase text-center">O nama</h2>
+            <p class="text-gray-600 leading-loose italic text-center mb-10 text-lg">Zlatara "Plavi Safir" je simbol prefinjenosti i decenijske tradicije u srcu Gradiške. Naš kvalitet je Vaša sigurnost.</p>
+            <div class="text-gray-500 text-center leading-loose space-y-6 text-sm">
+                <p>Nalazimo se u Vidovdanskoj ulici, gde već godinama gradimo poverenje naših sugrađana kroz unikatnu izradu i najviši kvalitet plemenitih metala. Naša misija je jednostavna: stvoriti nakit koji ne gubi na vrednosti, nakit koji se prenosi s generacije na generaciju i koji čuva Vaše najvažnije uspomene.</p>
+                <p>Ponosimo se ručnom izradom i pažljivo odabranim dragim kamenjem. Bez obzira da li tražite savršen verenički prsten, unikatnu ogrlicu, modernu narukvicu ili bezvremenski luksuzan sat, u "Plavom Safiru" ćete pronaći komad koji savršeno odražava Vašu ličnost i stil. Naše stručno osoblje je uvek tu da Vas savetuje i pomogne Vam u odabiru.</p>
+                <p>Osim bogate prodajne kolekcije, nudimo i usluge graviranja, popravke nakita i izrade po narudžbi. Posjetite nas i dopustite nam da Vam pomognemo da pronađete Vaš sopstveni delić bezvremenske elegancije.</p>
+            </div>
+        </div>
+    </section>
 
     <div id="full-menu" class="fixed inset-0 z-[100] bg-white/98 hidden flex flex-col items-center justify-center p-6 overflow-y-auto text-center">
         <button onclick="closeFullMenu()" class="absolute top-8 right-8 text-4xl text-blue-900">×</button>
@@ -41,33 +53,26 @@
     </div>
 
     <section id="shop-section" class="py-24 px-4 max-w-7xl mx-auto hidden">
-        <div id="breadcrumb" class="mb-12 text-blue-400 text-[10px] font-bold uppercase tracking-[0.4em] text-center italic border-b border-blue-50 pb-4"></div>
+        <div id="breadcrumb" class="mb-12 text-blue-400 text-[10px] font-bold uppercase tracking-[0.4em] text-center italic border-b border-blue-50 pb-4 text-center"></div>
         <div id="product-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6"></div>
     </section>
 
-    <section id="o-nama" class="py-24 bg-white text-center">
-        <div class="max-w-3xl mx-auto px-6">
-            <h2 class="text-4xl font-['Playfair_Display'] mb-8 text-blue-950 uppercase text-center">O nama</h2>
-            <p class="text-gray-500 leading-loose italic text-center">Zlatara "Plavi Safir" je simbol elegancije i tradicije. Naš kvalitet je Vaša sigurnost.</p>
-        </div>
-    </section>
-
-    <section id="lokacija" class="pb-24 px-4 max-w-5xl mx-auto text-center">
+    <section id="lokacija" class="py-24 px-4 max-w-5xl mx-auto text-center">
         <h2 class="text-2xl font-['Playfair_Display'] mb-8 text-blue-950 uppercase tracking-widest text-center">Pronađite nas</h2>
-        <a href="https://www.google.com/maps/search/Vidovdanska+Gradiška" target="_blank" class="block h-80 rounded-[40px] overflow-hidden relative border-8 border-white shadow-2xl group">
+        <a href="http://googleusercontent.com/maps.google.com/3" target="_blank" class="block h-80 rounded-[40px] overflow-hidden relative border-8 border-white shadow-2xl group text-center">
             <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&q=80" class="w-full h-full object-cover grayscale transition duration-700 group-hover:grayscale-0">
             <div class="absolute inset-0 bg-blue-900/30 flex flex-col items-center justify-center">
                 <i class="fas fa-map-marker-alt text-5xl text-white mb-4"></i>
-                <span class="bg-white text-blue-900 px-8 py-3 rounded-full font-bold uppercase text-xs tracking-widest">Gradiška, Vidovdanska</span>
+                <span class="bg-white text-blue-900 px-8 py-3 rounded-full font-bold uppercase text-xs tracking-widest shadow-lg">Gradiška, Vidovdanska</span>
             </div>
         </a>
     </section>
 
     <footer id="kontakt" class="py-20 border-t border-blue-50 text-center bg-slate-50">
         <div class="flex justify-center space-x-10 mb-12 text-center">
-            <a href="https://instagram.com/nexa_studio2" target="_blank" class="text-3xl text-blue-900 hover:text-blue-500 transition-all"><i class="fab fa-instagram"></i></a>
-            <a href="https://wa.me/38765959096" target="_blank" class="text-3xl text-blue-900 hover:text-green-500 transition-all"><i class="fab fa-whatsapp"></i></a>
-            <a href="tel:+38765959096" class="text-3xl text-blue-900 hover:text-blue-400 transition-all"><i class="fas fa-phone-alt"></i></a>
+            <a href="https://instagram.com/nexa_studio2" target="_blank" class="text-3xl text-blue-900 hover:text-blue-500 transition"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/38765959096" target="_blank" class="text-3xl text-blue-900 hover:text-green-500 transition"><i class="fab fa-whatsapp"></i></a>
+            <a href="tel:+38765959096" class="text-3xl text-blue-900 hover:text-blue-400 transition"><i class="fas fa-phone-alt"></i></a>
         </div>
         <p class="text-[9px] text-gray-400 uppercase tracking-[0.5em] text-center">© 2026 PLAVI SAFIR GRADIŠKA</p>
     </footer>
