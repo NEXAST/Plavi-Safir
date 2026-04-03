@@ -29,11 +29,11 @@ function openFullMenu(key) {
     menu.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
     
-    content.innerHTML = `<h2 class="text-blue-400 text-[10px] font-bold mb-10 tracking-[0.4em] uppercase opacity-60 italic text-center">— ${key} —</h2>`;
+    content.innerHTML = `<h2 class="text-blue-400 text-[10px] font-bold mb-10 tracking-[0.4em] uppercase opacity-60 italic text-center">— Izaberite kolekciju —</h2>`;
 
     menuData[key].forEach(option => {
         const btn = document.createElement('button');
-        btn.className = "menu-btn mb-4 fade-in";
+        btn.className = "menu-btn mb-4 fade-in block w-full";
         btn.innerText = option;
         btn.onclick = () => {
             menuHistory.push(key);
@@ -122,11 +122,11 @@ function openDetails(name, price, cat) {
             <div class="md:w-1/2">
                 <img src="https://source.unsplash.com/featured/800x800?${cat.toLowerCase()},jewelry&sig=${Math.random()}" class="w-full aspect-square object-cover rounded-[30px] border border-slate-100 shadow-sm">
             </div>
-            <div class="md:w-1/2 flex flex-col justify-center">
+            <div class="md:w-1/2 flex flex-col justify-center text-center md:text-left">
                 <h2 class="text-4xl font-['Playfair_Display'] text-blue-950 mb-3">${name}</h2>
                 <p class="text-3xl font-bold text-blue-600 mb-8">${price} KM</p>
-                <div class="bg-slate-50 p-6 rounded-3xl border border-slate-100 mb-8 text-sm text-slate-500 italic">
-                    Ručna izrada, garancija na kvalitet i autentičnost. Dostupno odmah u radnji u Gradišci.
+                <div class="bg-slate-50 p-6 rounded-3xl border border-slate-100 mb-8 text-sm text-slate-500 italic leading-relaxed text-center">
+                    "Prefinjenost i kvalitet. Zlatara Plavi Safir nudi samo najfinije materijale, garantovanog kvaliteta. Posjetite nas u Gradišci."
                 </div>
                 <a href="https://wa.me/38765959096" target="_blank" class="w-full py-5 bg-blue-600 text-white rounded-full font-bold text-center shadow-xl hover:bg-blue-700 transition">
                     NARUČI PREKO WHATSAPP-A
