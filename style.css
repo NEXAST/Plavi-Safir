@@ -1,1 +1,54 @@
+/* Osnovni stilovi */
+html { scroll-behavior: smooth; }
 
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #0a192f; }
+::-webkit-scrollbar-thumb { background: #d4af37; }
+
+/* Animacije za kategorije i proizvode */
+.fade-in-up {
+    animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Hover efekti na karticama proizvoda */
+.product-card {
+    transition: all 0.5s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-card img {
+    transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.product-card:hover img {
+    transform: scale(1.08);
+}
+
+/* Glow efekat za akcentne elemente */
+.glow-gold {
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
+}
+
+.glow-gold:hover {
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.3);
+}
+
+/* Modal Gallery */
+.gallery-thumb {
+    cursor: pointer;
+    filter: grayscale(100%);
+    transition: 0.3s;
+}
+
+.gallery-thumb:hover {
+    filter: grayscale(0%);
+    border-color: #d4af37;
+}
